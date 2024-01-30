@@ -39,7 +39,9 @@ DJANGO_APPS = [
     'django.contrib.staticfiles',
 ]
 
-LOCAL_APPS = []
+LOCAL_APPS = [
+    'newspost',
+]
 THIRD_PARTY_APPS = [
     'rest_framework',
 ]

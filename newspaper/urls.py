@@ -45,6 +45,7 @@ urlpatterns = [
 urlpatterns += [
     path("api/v1/newspost/", include("newspost.urls")),
     path("api/v1/user/", include("user.urls")),
+    path("api/v1/comments/", include("comments.urls")),
 ]
 
 

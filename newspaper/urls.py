@@ -44,6 +44,7 @@ urlpatterns = [
 # Third party apps
 urlpatterns += [
     path("api/v1/newspost/", include("newspost.urls")),
+    path("api/v1/user/", include("user.urls")),
 ]
 
 

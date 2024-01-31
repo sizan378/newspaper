@@ -43,6 +43,7 @@ LOCAL_APPS = [
     "newspost",
     "user",
     "comments",
+    "utils",
 ]
 THIRD_PARTY_APPS = [
     "rest_framework",

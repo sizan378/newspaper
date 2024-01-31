@@ -41,6 +41,7 @@ DJANGO_APPS = [
 
 LOCAL_APPS = [
     "newspost",
+    "user",
 ]
 THIRD_PARTY_APPS = [
     "rest_framework",

@@ -43,6 +43,7 @@ LOCAL_APPS = [
     "newspost",
     "user",
     "comments",
+    "category",
     "utils",
 ]
 THIRD_PARTY_APPS = [

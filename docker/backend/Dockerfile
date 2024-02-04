@@ -12,6 +12,7 @@ LABEL description="Development image for NewsPaper project"
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
+COPY . .
 # install dependencies
 RUN apt-get update \
   && apt-get install -y build-essential \
@@ -21,7 +22,7 @@ RUN apt-get update \
   && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
   && rm -rf /var/lib/apt/lists/*
 
-COPY ./requirements/requirements.txt /app/requirements.txt
+COPY ./requirements/requirements.txt .
 RUN pip3 install -r requirements.txt
 
 

@@ -12,18 +12,20 @@ LABEL description="Development image for NewsPaper project"
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-COPY . .
+COPY . ./app
 # install dependencies
-RUN apt-get update \
-  && apt-get install -y build-essential \
-  && apt-get install -y libpq-dev \
-  && apt-get install -y gettext \
-  && apt-get -y install netcat gcc postgresql \
-  && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
-  && rm -rf /var/lib/apt/lists/*
+# RUN apt-get update \
+#   && apt-get install -y build-essential \
+#   && apt-get install -y libpq-dev \
+#   && apt-get install -y gettext \
+#   && apt-get -y install netcat gcc postgresql \
+#   && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
+  # && rm -rf /var/lib/apt/lists/*
 
-COPY ./requirements/requirements.txt .
+COPY ./backend/requirements/requirements.txt .
 RUN pip3 install -r requirements.txt
 
 
 EXPOSE 8000
+
+CMD ["python", "manage", "runserver"]

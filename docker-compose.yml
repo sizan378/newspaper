@@ -19,11 +19,11 @@ services:
     build:
       context: .
       dockerfile: ./docker/backend/Dockerfile
-    command: "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    command: bash -c "cd /app && python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
     environment:
       - .env
     volumes:
-      - ./backend/:/app
+      - .:/app
     depends_on: 
       - postgres
     ports:
@@ -36,7 +36,7 @@ services:
       dockerfile: ./docker/frontend/Dockerfile
     command: "npm run dev"
     volumes:
-      - ./frontend:/app
+      - .:/app
     depends_on: 
       - backend
       - postgres
